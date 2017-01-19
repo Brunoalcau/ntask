@@ -53,7 +53,7 @@ describe("Routes: Token", () => {
         })
         .expect(200)
         .end((err, res) => {
-          expect(res.body).to.include.keys[("token")];
+          expect(res.body).to.include.keys("token");
           done(err);
         })
       });
