@@ -4,8 +4,16 @@
   "description": "API de serviços do Procon/PB",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js",
+    "start": "npm run apidoc && babel-node index.js",
+    "clusters": "babel-node clusters.js",
+    "apidoc": "apidoc -i routes/ -o public/apidoc",
     "test": "NODE_ENV=test mocha test/**/*.js"
+  },
+  "apidoc": {
+    "name": "Documentação - Node Task API",
+    "template": {
+      "forceLanguage": "pt_br"
+    }
   },
   "author": "Emiliano Carvalho",
   "dependencies": {
@@ -14,14 +22,18 @@
     "bcrypt": "^1.0.2",
     "body-parser": "^1.15.0",
     "consign": "^0.1.2",
+    "cors": "^2.8.1",
     "express": "^4.13.4",
     "jwt-simple": "^0.4.1",
+    "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-jwt": "^2.0.0",
     "sequelize": "^3.19.2",
-    "sqlite3": "^3.1.4"
+    "sqlite3": "^3.1.4",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
+    "apidoc": "^0.17.3",
     "babel-register": "^6.5.2",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
