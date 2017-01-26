@@ -31,6 +31,20 @@ module.exports = app => {
             res.status(412).json({msg: error.message});
         });
     })
+
+    // .put((req, res) => {
+    //     // "/users/1": Atualiza um user
+    //     console.log("Parametros PUT user: " + req.params)
+    //     Users.update(req.body, { where: {
+    //         id: req.params.id,
+    //         user_id: req.user.id
+    //     }})
+    //     .then(result => res.sendStatus(204))
+    //     .catch(error => {
+    //         res.status(412).json({msg: error.message});
+    //     });
+    // })
+
     /**
     * @api {delete} /user Exclui usuário autenticado
     * @apiGroup Usuario
@@ -49,6 +63,18 @@ module.exports = app => {
             res.status(412).json({msg: error.message});
         });
     });
+
+    app.route("/users/:id")
+        .all(app.auth.authenticate())
+        .put((req, res) => {
+            // "/users/1": Atualiza um usuario
+            Users.update(req.body, { where: req.params})
+            .then(result => res.sendStatus(204))
+            .catch(error => {
+                res.status(412).json({msg: error.message});
+            });
+        });
+
     /**
     * @api {post} /users Cadastra novo usuário
     * @apiGroup Usuário
@@ -80,6 +106,8 @@ module.exports = app => {
     * @apiErrorExample {json} Erro no cadastro
     *    HTTP/1.1 412 Precondition Failed
     */
+
+
     // sem autenticação
     app.post("/users", (req, res) => {
         Users.create(req.body)

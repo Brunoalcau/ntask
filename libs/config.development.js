@@ -2,11 +2,11 @@ import logger from "./logger.js";
 
 module.exports = {
     database: "tasks",
-    username: "",
-    password: "",
+    username: "root",
+    password: "pr0c0np3",
     params: {
-        dialect: "sqlite",
-        storage: "tasks.sqlite",
+        dialect: "mysql",
+        // storage: "tasks.sqlite",
         logging: (sql) => {
             logger.info(`[${new Date()}] ${sql}`);
         },
