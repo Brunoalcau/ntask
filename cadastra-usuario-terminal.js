@@ -1,18 +1,21 @@
 var http = require('http');
 var jwt = require('jwt-simple');
-// var1 = 1 + "john@gmail.com";
-token = jwt.encode(1, "Pr0c0n1P2-4P1");
+var1 = 4 + "emiliano@gmail.net";
+console.log(var1);
+token = jwt.encode(4, "Nta$K-AP1");
+
 console.log(token);
+// console.log(jwt.decode(token));
 
 var config = {
     hostname: 'localhost',
     port: 3000,
-    path: '/users/1',
+    path: '/users/3',
     method: 'put',
     headers: {
         'Accept': 'application/json',
         'Content-type': 'application/json',
-        'Authorization': 'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjEi.2kB2jA_uTtm1JitlVlhYIiWcZDO5RFwLcAV56eqwBxE'
+        'Authorization': 'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.IjNqb2huQGdtYWlsLm5ldCI.9wWlFbYkWafOnRuebkZ0ja2CtCC7jPBKuIdaALEO7Ag'
     }
 };
 
@@ -24,7 +27,7 @@ var client = http.request(config, function (res) {
 });
 
 var usuario = {
-    id: 1,
+    id: 3,
     nome: 'John',
     email: 'john@mail.net',
     password: 12345

@@ -12,12 +12,11 @@ module.exports = app => {
         console.log("payload: " + payload);
         Users.findById(payload.id)
         .then(user => {
-            console.log("autenticando ");
             if (user) {
-                console.log("ID: " + user.id );
-                console.log("NAME: " + user.name );
-                console.log("EMAIL: " + user.email );
-                console.log("PASSWORD: " + user.password );
+                // console.log("ID: " + user.id );
+                // console.log("NAME: " + user.name );
+                // console.log("EMAIL: " + user.email );
+                // console.log("PASSWORD: " + user.password );
                 return done(null, {
                     id: user.id,
                     email: user.email

@@ -28,6 +28,7 @@ describe("Routes: Tasks", () => {
             }]))
             .then(tasks => {
                 fakeTask = tasks[0];
+                console.log("Encode JWT: " + {id: user.id});
                 token = jwt.encode({id: user.id}, jwtSecret);
                 done();
             });
