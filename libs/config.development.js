@@ -3,7 +3,7 @@ import logger from "./logger.js";
 module.exports = {
     database: "tasks",
     username: "root",
-    password: "pr0c0np3",
+    password: "passwordadmin",
     params: {
         dialect: "mysql",
         // storage: "tasks.sqlite",
